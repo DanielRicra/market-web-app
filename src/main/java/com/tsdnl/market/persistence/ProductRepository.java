@@ -38,13 +38,13 @@ public class ProductRepository implements com.tsdnl.market.domain.repository.Pro
 
     @Override
     public Optional<DomainProduct> getProduct(int productId) {
-        return productCRUDRepository.findById(productId).map(product -> mapper.toProductDomain(product));
+        return productCRUDRepository.findById(productId).map(product -> mapper.toDomainProduct(product));
     }
 
     @Override
     public DomainProduct save(DomainProduct domainProduct) {
         Product product = mapper.toProduct(domainProduct);
-        return mapper.toProductDomain(productCRUDRepository.save(product));
+        return mapper.toDomainProduct(productCRUDRepository.save(product));
     }
 
     @Override

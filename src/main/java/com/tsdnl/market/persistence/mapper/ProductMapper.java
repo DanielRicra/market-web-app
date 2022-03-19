@@ -21,7 +21,7 @@ public interface ProductMapper {
         @Mapping(source = "state", target = "active"),
         @Mapping(source = "category", target = "category"),
     })
-    DomainProduct toProductDomain(Product product);
+    DomainProduct toDomainProduct(Product product);
     List<DomainProduct> toDomainProducts(List<Product> products);
 
     @InheritInverseConfiguration
