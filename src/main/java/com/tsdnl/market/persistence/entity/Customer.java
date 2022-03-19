@@ -1,6 +1,7 @@
 package com.tsdnl.market.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "customers")
@@ -23,6 +24,9 @@ public class Customer {
 
     @Column(name = "correo_electronico")
     private String emailAddress;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Purchase> purchases;
 
     public String getId() {
         return id;
