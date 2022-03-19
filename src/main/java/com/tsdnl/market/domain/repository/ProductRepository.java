@@ -1,15 +1,15 @@
 package com.tsdnl.market.domain.repository;
 
-import com.tsdnl.market.domain.Product;
+import com.tsdnl.market.domain.DomainProduct;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository {
-    List<Product> getAll();
-    Optional<List<Product>> getByCategory(int categoryId);
-    Optional<List<Product>> getScarceProducts(int quantity);
-    Optional<Product> getProduct(int productId);
-    Product save(Product product);
+    List<DomainProduct> getAll();
+    Optional<List<DomainProduct>> getByCategory(int categoryId);
+    Optional<List<DomainProduct>> getScarceProducts(int quantity);
+    Optional<DomainProduct> getProduct(int productId);
+    DomainProduct save(DomainProduct product);
     void delete(int productId);
 }

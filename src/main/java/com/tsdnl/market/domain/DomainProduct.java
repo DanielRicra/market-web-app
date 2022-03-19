@@ -1,6 +1,6 @@
 package com.tsdnl.market.domain;
 
-public class Product {
+public class DomainProduct {
 
     private int productId;
     private String name;
@@ -8,7 +8,7 @@ public class Product {
     private double price;
     private int stock;
     private boolean active;
-    private Category category;
+    private DomainCategory category;
 
     public int getProductId() {
         return productId;
@@ -58,11 +58,11 @@ public class Product {
         this.active = active;
     }
 
-    public Category getCategory() {
+    public DomainCategory getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(DomainCategory category) {
         this.category = category;
     }
 }
