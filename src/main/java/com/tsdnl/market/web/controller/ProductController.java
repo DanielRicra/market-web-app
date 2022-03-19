@@ -3,8 +3,7 @@ package com.tsdnl.market.web.controller;
 import com.tsdnl.market.domain.DomainProduct;
 import com.tsdnl.market.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,23 +15,28 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @GetMapping("")
     public List<DomainProduct>  getAll() {
         return productService.getAll();
     }
 
-    public Optional<DomainProduct> getProduct(int productId) {
+    @GetMapping("/{id}")
+    public Optional<DomainProduct> getProduct(@PathVariable("id") int productId) {
         return productService.getProduct(productId);
     }
 
-    public Optional<List<DomainProduct>> getByCategory(int categoryId) {
+    @GetMapping("/category/{id}")
+    public Optional<List<DomainProduct>> getByCategory(@PathVariable("id") int categoryId) {
         return productService.getByCategory(categoryId);
     }
 
-    public DomainProduct save(DomainProduct product) {
+    @PostMapping("/save")
+    public DomainProduct save(@RequestBody DomainProduct product) {
         return productService.save(product);
     }
 
-    public boolean delete(int productId) {
+    @DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable("id") int productId) {
         return productService.delete(productId);
     }
 }

@@ -30,7 +30,7 @@ public class Product {
     private Boolean state;
 
     @ManyToOne
-    @JoinColumn(name = "id_category", insertable = false, updatable = false)
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Category category;
 
     public Integer getIdProduct() {
