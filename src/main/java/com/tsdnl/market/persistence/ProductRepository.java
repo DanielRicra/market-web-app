@@ -1,37 +1,50 @@
 package com.tsdnl.market.persistence;
 
+import com.tsdnl.market.domain.DomainProduct;
 import com.tsdnl.market.persistence.crud.ProductCrudRepository;
 import com.tsdnl.market.persistence.entity.Product;
+import com.tsdnl.market.persistence.mapper.ProductMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class ProductRepository {
+public class ProductRepository implements com.tsdnl.market.domain.repository.ProductRepository {
     private ProductCrudRepository productCRUDRepository;
+    private ProductMapper mapper;
 
-    public List<Product> getAll() {
-        return (List<Product>) productCRUDRepository.findAll();
+    @Override
+    public List<DomainProduct> getAll() {
+        List<Product> products = (List<Product>) productCRUDRepository.findAll();
+        return mapper.toDomainProducts(products);
     }
 
-    public List<Product> getByCategory(int idCategory) {
-        return productCRUDRepository.findByIdCategoryOrderByNameAsc(idCategory);
+    @Override
+    public Optional<List<DomainProduct>> getByCategory(int categoryId) {
+        List<Product> products = productCRUDRepository.findByIdCategoryOrderByNameAsc(categoryId);
+        return Optional.of(mapper.toDomainProducts(products));
     }
 
-    public Optional<List<Product>> getScarce(int quantity) {
-        return productCRUDRepository.findByStockQuantityLessThanAndState(quantity, true);
+    @Override
+    public Optional<List<DomainProduct>> getScarceProducts(int quantity) {
+        Optional<List<Product>> products = productCRUDRepository.findByStockQuantityLessThanAndState(quantity, true);
+        return products.map(productList -> mapper.toDomainProducts(productList));
     }
 
-    public Optional<Product> getProduct(int idProduct) {
-        return productCRUDRepository.findById(idProduct);
+    @Override
+    public Optional<DomainProduct> getProduct(int productId) {
+        return productCRUDRepository.findById(productId).map(product -> mapper.toProductDomain(product));
     }
 
-    public Product save(Product product) {
-        return productCRUDRepository.save(product);
+    @Override
+    public DomainProduct save(DomainProduct domainProduct) {
+        Product product = mapper.toProduct(domainProduct);
+        return mapper.toProductDomain(productCRUDRepository.save(product));
     }
 
-    public void delete(int idProduct) {
-        productCRUDRepository.deleteById(idProduct);
+    @Override
+    public void delete(int productId) {
+        productCRUDRepository.deleteById(productId);
     }
 }
