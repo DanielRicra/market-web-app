@@ -65,4 +65,5 @@ public class DomainProduct {
     public void setCategory(DomainCategory category) {
         this.category = category;
     }
+
 }
