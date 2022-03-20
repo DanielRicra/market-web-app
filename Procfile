@@ -1,1 +1,1 @@
-web: java -jar -Dspring.profiles.active=pdn build/libs/tsdnl-market-1.0.jar
+web: java -Dspring.profiles.active=pdn -jar build/libs/tsdnl-market-1.0.jar --port $PORT target/*.war
