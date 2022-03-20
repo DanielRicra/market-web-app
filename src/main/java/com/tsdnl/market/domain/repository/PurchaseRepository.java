@@ -1,8 +1,6 @@
 package com.tsdnl.market.domain.repository;
 
 import com.tsdnl.market.domain.DomainPurchase;
-import com.tsdnl.market.domain.PurchaseItem;
-
 import java.util.List;
 import java.util.Optional;
 
