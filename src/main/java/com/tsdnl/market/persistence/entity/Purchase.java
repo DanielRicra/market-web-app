@@ -82,4 +82,20 @@ public class Purchase {
     public void setState(String state) {
         this.state = state;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<PurchaseProduct> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<PurchaseProduct> products) {
+        this.products = products;
+    }
 }
