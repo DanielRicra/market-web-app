@@ -1,7 +1,6 @@
 package com.tsdnl.market.persistence.mapper;
 
 import com.tsdnl.market.domain.DomainPurchase;
-import com.tsdnl.market.domain.PurchaseItem;
 import com.tsdnl.market.persistence.entity.Purchase;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
