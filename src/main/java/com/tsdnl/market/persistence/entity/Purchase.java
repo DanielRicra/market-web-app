@@ -22,7 +22,7 @@ public class Purchase {
     @Column(name = "medio_pago")
     private String paymentMethod;
 
-    @Column(name = "commentario")
+    @Column(name = "comentario")
     private String comment;
 
     @Column(name = "estado")

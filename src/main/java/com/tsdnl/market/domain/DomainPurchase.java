@@ -5,12 +5,12 @@ import java.util.List;
 
 public class DomainPurchase {
     private int purchaseId;
-    private String costumerId;
+    private String customerId;
     private LocalDateTime date;
     private String paymentMethod;
     private String comment;
-    private boolean state;
-    private List<DomainPurchase> items;
+    private String state;
+    private List<PurchaseItem> items;
 
     public int getPurchaseId() {
         return purchaseId;
@@ -20,12 +20,12 @@ public class DomainPurchase {
         this.purchaseId = purchaseId;
     }
 
-    public String getCostumerId() {
-        return costumerId;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public void setCostumerId(String costumerId) {
-        this.costumerId = costumerId;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
     public LocalDateTime getDate() {
@@ -52,19 +52,32 @@ public class DomainPurchase {
         this.comment = comment;
     }
 
-    public boolean isState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(boolean state) {
+    public void setState(String state) {
         this.state = state;
     }
 
-    public List<DomainPurchase> getItems() {
+    public List<PurchaseItem> getItems() {
         return items;
     }
 
-    public void setItems(List<DomainPurchase> item) {
-        this.items = item;
+    public void setItems(List<PurchaseItem> items) {
+        this.items = items;
+    }
+
+    @Override
+    public String toString() {
+        return "DomainPurchase{" +
+                "Id=" + purchaseId +
+                ", cus-Id='" + customerId + '\'' +
+                ", date=" + date +
+                ", pM='" + paymentMethod + '\'' +
+                ", comment='" + comment + '\'' +
+                ", state='" + state + '\'' +
+                ", items=" + items +
+                '}';
     }
 }

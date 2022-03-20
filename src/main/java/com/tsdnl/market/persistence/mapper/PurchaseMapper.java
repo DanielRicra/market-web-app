@@ -14,7 +14,11 @@ public interface PurchaseMapper {
 
     @Mappings({
             @Mapping(source = "idPurchase", target = "purchaseId"),
-            @Mapping(source = "idCustomer", target = "costumerId"),
+            @Mapping(source = "idCustomer", target = "customerId"),
+            @Mapping(source = "date", target = "date"),
+            @Mapping(source = "paymentMethod", target = "paymentMethod"),
+            @Mapping(source = "comment", target = "comment"),
+            @Mapping(source = "state", target = "state"),
             @Mapping(source = "products", target = "items")
     })
     DomainPurchase toDomainPurchase(Purchase purchase);

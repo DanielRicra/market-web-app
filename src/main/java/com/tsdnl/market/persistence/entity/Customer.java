@@ -10,8 +10,8 @@ public class Customer {
     @Id
     private String id;
 
-    @Column(name = "nombres")
-    private String names;
+    @Column(name = "nombre")
+    private String name;
 
     @Column(name = "apellidos")
     private String lastNames;
@@ -37,18 +37,18 @@ public class Customer {
     }
 
     public String getName() {
-        return names;
+        return name;
     }
 
-    public void setName(String names) {
-        this.names = names;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
+    public String getLastNames() {
         return lastNames;
     }
 
-    public void setLastName(String lastNames) {
+    public void setLastNames(String lastNames) {
         this.lastNames = lastNames;
     }
 
