@@ -1,40 +1,70 @@
 package com.tsdnl.market.domain;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 public class DomainPurchase {
-    private int productId;
-    private int quantity;
-    private double total;
-    private boolean active;
+    private int purchaseId;
+    private String costumerId;
+    private LocalDateTime date;
+    private String paymentMethod;
+    private String comment;
+    private boolean state;
+    private List<DomainPurchase> items;
 
-    public int getProductId() {
-        return productId;
+    public int getPurchaseId() {
+        return purchaseId;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setPurchaseId(int purchaseId) {
+        this.purchaseId = purchaseId;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getCostumerId() {
+        return costumerId;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setCostumerId(String costumerId) {
+        this.costumerId = costumerId;
     }
 
-    public double getTotal() {
-        return total;
+    public LocalDateTime getDate() {
+        return date;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
-    public boolean isActive() {
-        return active;
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
+
+    public List<DomainPurchase> getItems() {
+        return items;
+    }
+
+    public void setItems(List<DomainPurchase> item) {
+        this.items = item;
     }
 }
