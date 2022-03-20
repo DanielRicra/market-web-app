@@ -1,4 +1,4 @@
-package com.tsdnl.market.web.controller.exepions;
+package com.tsdnl.market.web.exceptions;
 
 public class ErrorMessage {
     private String exception;

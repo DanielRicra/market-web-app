@@ -1,4 +1,4 @@
-package com.tsdnl.market.web.controller.exepions;
+package com.tsdnl.market.web.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
